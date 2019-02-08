@@ -1,0 +1,69 @@
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+--------------------------------Laravel------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+Es un framework PHP
+
+Inciar Proyecto en laravel
+composer create-project --prefer-dist laravel/laravel nomProyect
+
+php artisan serve
+
+
+blade
+ motor de plantilla de laravel
+ {{}} imprime una variable
+ proteje de ataque xss
+
+ directiva @yield() el contenido se agrega dinamicamente, recibe como parametro un nombre para diferenciarla de otros yield
+
+ @extends()ocupamos para reutlizar una plantilla
+ En los formularios siempre has que agregar @csrf para protejer de ataques xss
+
+ejecutar este comando para corregir error
+composer dump-autoload
+
+Crear migraciones (tabla)
+php artisan make:migration add_categories_table --create categories
+
+agregar migraciones a la base de datos
+php artisan migrate
+
+crear modelo
+php artisan make:model nomModelo
+
+tinker
+php artisan tinker
+ $user = ['name' => "lety san", 'email' => 'correo2@correo.com', 'password' =>bcrypt('secret')]
+ \App\User::create($user);
+ $users = \App\User:all();
+
+ >>> $category = new App\Category();
+=> App\Category {#2909}
+>>> $category->name ="Noticias";
+=> "Noticias"
+>>> $category->save();
+=> true 
+
+
+Relaciones
+uno a uno
+uno a muchos
+muchos a muchos
+
+Routing
+
+podemos tener ritas de tipo get, post, delete,
+put,
+
+Contlollers
+
+crear controlador php artisan make:controller testController
+
+Y si quieres crear modelo, migración y controlador desde el inicio del tutorial usas:
+php artisan make:model NombrelModelo –mc --resource﻿
+
+
+View
+
