@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('articles/{nombre?}', function($nombre="No coloco nombre"){
+    echo 'El nombre colocado es:'.$nombre;
+});
