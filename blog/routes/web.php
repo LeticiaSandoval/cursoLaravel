@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('articles/{nombre?}', function($nombre="No coloco nombre"){
-    echo 'El nombre colocado es:'.$nombre;
+Route::group(['prefix' =>'articles'], function(){
+    Route::get('view/{id}',[
+        'uses' => 'testController@view',
+        'as' => 'articlesView'
+    ]);
 });
