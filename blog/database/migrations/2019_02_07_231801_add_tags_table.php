@@ -18,6 +18,15 @@ class AddTagsTable extends Migration
             $table->timestamps();
             $table->string('name');
         });
+
+        Schema::create('article_tag', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer('article_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
+            $table->foreign('article_id')->references('id')->on('articles');
+            $table->foreign('tag_id')->references('id')->on('tags');
+        });
     }
 
     /**
