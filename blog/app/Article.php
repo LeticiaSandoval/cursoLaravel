@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model
 {
+    use Sluggable;
     protected $table ="articles";
     protected $fillable =['titlle','content', 'category_id', 'user_id'];
 
@@ -25,5 +27,14 @@ class Article extends Model
 
     public function tags(){
        return $this->belongsToMany('App\Tag');
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }
