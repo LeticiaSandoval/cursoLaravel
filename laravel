@@ -1,3 +1,7 @@
+https://packagist.org/?
+podemos encontrar paquetes para php
+
+
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 --------------------------------Laravel------------------------------------
@@ -5,24 +9,10 @@
 ---------------------------------------------------------------------------
 Es un framework PHP
 
-Inciar Proyecto en laravel
+*************************Inciar Proyecto en laravel************************
 composer create-project --prefer-dist laravel/laravel nomProyect
 
 php artisan serve
-
-
-blade
- motor de plantilla de laravel
- {{}} imprime una variable
- proteje de ataque xss
-
- directiva @yield() el contenido se agrega dinamicamente, recibe como parametro un nombre para diferenciarla de otros yield
-
- @extends()ocupamos para reutlizar una plantilla
- En los formularios siempre has que agregar @csrf para protejer de ataques xss
-
-ejecutar este comando para corregir error
-composer dump-autoload
 
 Crear migraciones (tabla)
 php artisan make:migration add_categories_table --create categories
@@ -57,7 +47,7 @@ Routing
 podemos tener ritas de tipo get, post, delete,
 put,
 
-Contlollers
+***********************Contlollers**********************
 
 crear controlador php artisan make:controller testController
 
@@ -65,5 +55,41 @@ Y si quieres crear modelo, migración y controlador desde el inicio del tutorial
 php artisan make:model NombrelModelo –mc --resource﻿
 
 
-View
+Views
+
+blade
+ motor de plantilla de laravel
+ llamar una vista a traves de rutas
+view('test.index'); funciona de igual forma view('test/index');
+
+ {{ }} = <?php echo "";?> imprime una variable
+ {!! !!}  <?php ?>
+ proteje de ataque xss
+
+ 
+
+ ----directiva @yield()--- el contenido se agrega dinamicamente, recibe como parametro un nombre para diferenciarla de otros yield
+
+ @extends()ocupamos para reutlizar una plantilla
+ En los formularios siempre has que agregar @csrf para protejer de ataques xss
+
+ejecutar este comando para corregir error
+composer dump-autoload
+
+------------------------------------------------------
+------------------------------------------------------
+--------------Laravel conective-----------------------
+
+Permite generar formularios y no usar etiquetas html
+Instalacion:
+1. composer require laravelcollective/html
+2. "require": {
+    "laravelcollective/annotations": "5.4.\*"
+}
+
+
+Route::group(['prefix' => 'admin'], function(){
+   Route::resource('',''); // resourse toma los metodos de un controlador y 
+                              resibe 2 parametros: 1. es el nombre del grupo de rutas, el 2. Nombre del controlador
+});
 
