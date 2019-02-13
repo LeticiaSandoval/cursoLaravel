@@ -10,8 +10,11 @@
 
 </head>
 <body>
+    @include('admin.template.pantials.nav')
     <section>
         @yield('content')
-    </section>    
+    </section>
+    <script  src = "{{ asset('plugins/jquery/js/jquery-3.3.1.js') }}">  
+    <script  src = "{{ asset('plugins/bootstrap/js/bootstrap.js') }}">
 </body>
 </html>
