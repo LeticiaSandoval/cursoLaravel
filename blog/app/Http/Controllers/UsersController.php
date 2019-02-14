@@ -25,4 +25,12 @@ class UsersController extends Controller
         flash('Se ha registrado a '.$user->name.' de forma exitosa')->success();
         return redirect()->route('users.index');
     }
+
+    public function destroy($id){
+        $user = User::find($id);
+        flash('Usuario '.$user->name.' ha sido eliminado')->error();
+        $user->delete();
+        return redirect()->route('users.index');
+
+    }
 }
