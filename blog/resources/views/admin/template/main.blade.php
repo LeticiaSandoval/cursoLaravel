@@ -12,8 +12,19 @@
 <body>
     @include('admin.template.pantials.nav')
     <section>
+      <div class="panel panel-default">
+       <div class="panel-heading">
+       <br>
+           <h3 class="panel-titlle">@yield('title')</h3>
+       </div>
+        <div class="panel-body">
+        @include('flash::message')
         @yield('content')
+        </div>
+       </div>
     </section>
+    <footer>
+    </footer>
     <script  src = "{{ asset('plugins/jquery/js/jquery-3.3.1.js') }}">  
     <script  src = "{{ asset('plugins/bootstrap/js/bootstrap.js') }}">
 </body>

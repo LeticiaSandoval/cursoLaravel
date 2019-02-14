@@ -9,7 +9,7 @@ use App\User;
 class UsersController extends Controller
 {
     public function index(){
-       $users = User::orderBy('id', 'ASC')->paginate(7);
+       $users = User::orderBy('id', 'ASC')->paginate(6);
        return view('admin.users.index')->with('users', $users);
     }
 
@@ -22,6 +22,7 @@ class UsersController extends Controller
         $user = new User($request->all());
         $user ->password = bcrypt($request->password);
         $user->save();
-        dd('usuario creado');
+        flash('Se ha registrado a '.$user->name.' de forma exitosa')->success();
+        return redirect()->route('users.index');
     }
 }
