@@ -29,7 +29,7 @@
               @endif
         </td>
             <td>
-                <a href="#" class="btn btn-primary btn-sm">
+                <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary btn-sm">
                    <span class="glyphicon"> &#x270f;</span> 
                 </a>
                 <a href="{{route('admin.users.destroy', $user->id)}}" onclick="return confirm('Seguro que deseas eliminarlo?')" class="btn btn-danger btn-sm">
