@@ -8,6 +8,12 @@ use App\User;
 
 class UsersController extends Controller
 {
+    public function index(){
+       $users = User::orderBy('id', 'ASC')->paginate(7);
+       return view('admin.users.index')->with('users', $users);
+    }
+
+
     public function create(){
         return view('admin.users.create');
     }
