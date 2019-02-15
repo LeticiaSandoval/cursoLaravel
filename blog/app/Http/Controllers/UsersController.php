@@ -18,7 +18,7 @@ class UsersController extends Controller
 
     public function create(){
 
-        return view('admin.users.create');
+        return view('admin.categories.create');
     }
 
     public function store(UserRequest $request){
@@ -48,9 +48,8 @@ class UsersController extends Controller
 
     public function update(Request $request, $id){
         $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->type = $request->type;
+        //funcion fill toma el usuario que ha encontrado y remplaza con los datos que ha recibido
+        $user->fill($request->all()); 
         $user->save();
         
         flash('Datos actualizados')->success();
