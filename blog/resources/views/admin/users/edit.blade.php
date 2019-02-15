@@ -2,9 +2,10 @@
 
 @section('title', 'Editar usuario '.$user->name)
 
-@section('content')
 <div class="container">
-{!! Form::open(['route' => 'users.update', 'method' =>'PUT']) !!}
+<br>
+@section('content')
+  {!! Form::open(['route' =>['users.update',$user->id], 'method' =>'PUT']) !!}
 
   <div class="form-group">
    {!! Form::label('name', 'Nombre')!!}
@@ -13,12 +14,7 @@
 
   <div class="form-group">
    {!! Form::label('email', 'Correo')!!}
-   {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'ejemplo@gmail.com', 'required'])!!}
-  </div>
-
-  <div class="form-group">
-   {!! Form::label('Password', 'Contraseña')!!}
-   {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '**************', 'required'])!!}
+   {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => 'ejemplo@gmail.com', 'required'])!!}
   </div>
 
   <div class="form-group">
@@ -27,7 +23,7 @@
   </div>
 
   <div class="form-group">
-  {!! Form::submit('Registrar', ['class' => 'btn btn-primary'])!!}
+  {!! Form::submit('Editar', ['class' => 'btn btn-primary'])!!}
 
   </div>
 

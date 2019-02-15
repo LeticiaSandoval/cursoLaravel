@@ -44,4 +44,21 @@ class UsersController extends Controller
         return view('admin.users.edit')->with('user', $user);
 
     }
+
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->type = $request->type;
+        $user->save();
+        
+        flash('Datos actualizados')->success();
+        
+        return redirect()->route('users.index');        
+
+    }
+
+    public function show($id){
+
+    }
 }
