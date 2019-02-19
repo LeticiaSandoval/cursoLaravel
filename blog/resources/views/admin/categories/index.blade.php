@@ -32,7 +32,7 @@
     
   </tbody>
 </table>
-<div>
+<div class="text-center">
 {!!  $categories->links('pagination::bootstrap-4')!!}
 </div>
 </div>
