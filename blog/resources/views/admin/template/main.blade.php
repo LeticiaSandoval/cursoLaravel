@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    @include('admin.template.pantials.nav')
+    @include('admin.template.partials.nav')
     <section>
       <div class="panel panel-default">
        <div class="panel-heading">
