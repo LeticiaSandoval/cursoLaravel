@@ -28,3 +28,26 @@ Route::group(['prefix' => 'admin'], function(){
      'as' => 'admin.categories.destroy'
    ]);
 });
+
+//Auth::routes();
+
+
+
+Route::get('admin/auth/login', [
+  'uses'  => 'Auth\LoginController@showLoginForm',
+  'as'    => 'auth.login'
+]);
+
+Route::post('admin/auth/login', [
+  'uses'  => 'Auth\LoginController@login',
+  'as'    => 'auth.login'
+]);
+
+Route::get('admin/auth/logout', [
+  'uses'  => 'Auth\LoginController@logout',
+  'as'    => 'auth.logout'
+]);
+
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
