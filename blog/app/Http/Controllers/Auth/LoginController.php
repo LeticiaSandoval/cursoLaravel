@@ -38,6 +38,8 @@ class LoginController extends Controller
     }
 
     protected function showLoginForm(){
-        return view('auth.login');
+        return view('admin.auth.login');
     }
+
+    protected $redirectPath = 'admin';
 }

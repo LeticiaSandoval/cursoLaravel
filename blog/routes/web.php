@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function(){
    Route::resource('users', 'UsersController');
    Route::get('users/{id}/destroy', [
     'uses' =>'UsersController@destroy',
@@ -35,17 +35,17 @@ Route::group(['prefix' => 'admin'], function(){
 
 Route::get('admin/auth/login', [
   'uses'  => 'Auth\LoginController@showLoginForm',
-  'as'    => 'auth.login'
+  'as'    => 'admin.auth.login'
 ]);
 
 Route::post('admin/auth/login', [
   'uses'  => 'Auth\LoginController@login',
-  'as'    => 'auth.login'
+  'as'    => 'admin.auth.login'
 ]);
 
 Route::get('admin/auth/logout', [
   'uses'  => 'Auth\LoginController@logout',
-  'as'    => 'auth.logout'
+  'as'    => 'admin.auth.logout'
 ]);
 
 //Auth::routes();

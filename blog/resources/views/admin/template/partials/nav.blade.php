@@ -1,3 +1,6 @@
+<nav>
+<div class="container-fluid">
+<div class=""> 
 <ul class="nav nav-pills">
   <li class="nav-item">
     <a class="nav-link active" href="#">Inicio</a>
@@ -19,3 +22,12 @@
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tags</a>
   </li>
 </ul>
+
+<ul class = "navbar-nav navbar-right">
+ <li><a href = "#" >Pagina principal</a></li>
+ <li class = "dropdown"><a>{{ }} <span class="caret"></span></a></li>
+
+</ul>
+</div>
+</div>
+</nav>
