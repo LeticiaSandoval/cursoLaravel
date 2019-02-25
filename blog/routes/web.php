@@ -32,7 +32,6 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function(){
 //Auth::routes();
 
 
-
 Route::get('admin/auth/login', [
   'uses'  => 'Auth\LoginController@showLoginForm',
   'as'    => 'admin.auth.login'
@@ -47,7 +46,5 @@ Route::get('admin/auth/logout', [
   'uses'  => 'Auth\LoginController@logout',
   'as'    => 'admin.auth.logout'
 ]);
-
-//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

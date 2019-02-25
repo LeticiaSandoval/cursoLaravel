@@ -5,10 +5,13 @@
 <div class="container">
 <br>
 @section('content')
+<div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
+
+                <div class="card-body">
   {!! Form::open(['route' =>['admin.auth.login'], 'method' =>'POST']) !!}
-
-  
-
   <div class="form-group">
    {!! Form::label('email', 'Correo')!!}
    {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'ejemplo@gmail.com', 'required'])!!}
@@ -20,10 +23,24 @@
   </div>
 
   <div class="form-group">
-  {!! Form::submit('Acceder', ['class' => 'btn btn-primary'])!!}
-
+        <div class="form-check">
+            {!! Form::checkbox('checkbox')!!}
+            {!! Form::label('remember', 'Remember Me')!!}
+        </div>
   </div>
 
+  <div class="form-group">
+  {!! Form::submit('Acceder', ['class' => 'btn btn-primary'])!!}
+        @if (Route::has('password.request'))
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                 {{ __('Forgot Your Password?') }}
+            </a>
+        @endif
+  </div>
+</div>
+</div>
+</div>
+</div>
 {!! Form::close() !!}
 </div>
 <div class="container">
