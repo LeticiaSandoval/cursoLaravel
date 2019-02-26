@@ -41,4 +41,5 @@ class LoginController extends Controller
     protected function showLoginForm(){
         return view('admin.auth.login');
     }
+    
 }

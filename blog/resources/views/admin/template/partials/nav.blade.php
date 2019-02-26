@@ -32,12 +32,13 @@
                         </span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                       
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-
+                  @if(Auth::user())
                     <li class="nav-item dropdown">
                         <a aria-haspopup="true" class="nav-link" href="{{ route('users.index') }}">
                             Usuarios
@@ -63,6 +64,7 @@
                             Tags
                         </a>
                     </li>
+                  @endif
                             <!-- Authentication Links -->
                             @guest
                             <li class="nav-item">
@@ -85,9 +87,8 @@
                                     </span>
                                 </a>
                                 <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="{{ route('admin.auth.logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a class="dropdown-item" href="{{ route('admin.auth.logout') }}">
+                                        {{ __('Salir') }}
                                     </a>
                                     <form action="{{ route('admin.auth.logout') }}" id="logout-form" method="POST" style="display: none;">
                                         @csrf
