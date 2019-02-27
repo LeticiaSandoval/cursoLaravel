@@ -1,16 +1,15 @@
 @extends('admin.template.main')
 
-@section('title', 'Editar categoría '.$category->name)
+@section('title', 'Editar tag') 
 
 @section('content')
 
 <div class="container">
-<br>
-  
-   {!! Form::open(['route' => ['categories.update', $category], 'method' => 'PUT'])!!}
+<br>  
+   {!! Form::open(['route' => ['tags.update', $tag->id], 'method' => 'PUT'])!!}
       <div class="form-group">
            {!! Form::label('name', 'Nombre') !!}
-           {!! Form::text('name', $category->name, ['class' => 'form-control', 'placeholder' => 'Nombre de la categoría', 'required']) !!}
+           {!! Form::text('name', $tag->name, ['class' => 'form-control', 'placeholder' => 'Nombre del tag', 'required']) !!}
       </div>
       <div class="form-group">
            {!! Form::submit ('Editar',['class' =>'btn btn-primary'])!!}

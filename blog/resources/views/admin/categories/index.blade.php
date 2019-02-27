@@ -2,9 +2,10 @@
 
 @section('title', 'Listado de categorías')
 
+@section('content')
+
 <div class="container">
 <br>
-@section('content')
     <a href="{{ route('categories.create')}}" class="btn btn-info">Registrar nueva categoría</a><br><br>
     <table class="table table-hover">
   <thead class="thead-dark">

@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a aria-disabled="true" class="nav-link disabled" href="#" tabindex="-1">
+                        <a class="nav-link" href="{{ route('tags.index')}}" tabindex="-1">
                             Tags
                         </a>
                     </li>

@@ -2,9 +2,10 @@
 
 @section('title', 'Editar usuario '.$user->name)
 
+@section('content')
+
 <div class="container">
 <br>
-@section('content')
   {!! Form::open(['route' =>['users.update',$user->id], 'method' =>'PUT']) !!}
 
   <div class="form-group">

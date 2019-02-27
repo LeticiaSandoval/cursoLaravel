@@ -1,9 +1,9 @@
 @extends('admin.template.main')
 
 @section('title', 'Lista de usuarios')
-<br>
-<div class="container">
+
 @section('content')
+<div class="container">
 <a href="{{route('users.create')}}" class="btn btn-info">Registrar nuevo usuario</a><br><br>
 <table class="table table-hover">
   <thead class="thead-dark">
