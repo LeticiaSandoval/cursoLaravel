@@ -5,6 +5,13 @@
 @section('content')
 <div class="container">
 <a href="{{route('users.create')}}" class="btn btn-info">Registrar nuevo usuario</a><br><br>
+<!--- Buscador de tags-->
+      {!! Form::open(['route' =>'tags.index', 'method' =>'GET', 'class' => 'navbar-form pull-right col-md-2']) !!}
+          <div class = "form-group">
+          {!! Form::text('name', null, ['class' =>'form-control', 'placelhoder' =>'Buscar tag ..'])!!}
+          </div>
+      {!! Form::close() !!}
+<!-- Fin de buscador-->
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
