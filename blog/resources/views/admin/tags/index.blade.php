@@ -6,6 +6,19 @@
 
 <div class="container">
 <a href="{{route('tags.create')}}" class="btn btn-info">Registrar nuevo tags</a><br><br>
+<!--- Buscador de tags-->
+
+{!! Form::open(['route' => 'tags.index', 'method' =>'GET', 'class' => 'd-flex flex-row-reverse bd-highlight'])!!}
+
+      <div class="form-group">
+           {!! Form::submit ('Buscar',['class' =>'btn btn-outline-success my-2 my-sm-0'])!!}
+      </div>
+      <div class="form-group">
+           {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar tag ..', 'required']) !!}
+      </div>
+   {!! Form::close() !!}<br>
+<!-- Fin de buscador-->
+
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
@@ -29,11 +42,9 @@
           </td>
       </tr>
     @endforeach
-    
   </tbody>
 </table>
-<div class="text-center">
+<div>
 {!!  $tags->links('pagination::bootstrap-4')!!}
-</div>
 </div>
 @endsection
