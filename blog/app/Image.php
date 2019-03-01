@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Imagen extends Model
+class Image extends Model
 {
-    protected $table ="images";
+    protected $table ="imagenes";
     protected $fillable =['name','article_id'];
 
     public function article(){

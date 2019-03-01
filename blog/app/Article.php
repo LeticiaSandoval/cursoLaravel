@@ -9,7 +9,7 @@ class Article extends Model
 {
     use Sluggable;
     protected $table ="articles";
-    protected $fillable =['titlle','content', 'category_id', 'user_id'];
+    protected $fillable =['title','content', 'category_id', 'user_id'];
 
     //relacion uno a muchos
 

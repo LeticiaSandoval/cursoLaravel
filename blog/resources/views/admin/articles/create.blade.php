@@ -24,7 +24,7 @@
 
   <div class="form-group">
    {!! Form::label('tags', 'Tags')!!}
-   {!! Form::select('tags', $tags, null,['class' => 'form-control', 'placeholder' =>'selecciona una opción', 'required'])!!}
+   {!! Form::select('tags[]', $tags, null,['class' => 'form-control', 'placeholder' =>'selecciona una opción', 'required'])!!}
   </div>  
 
   <div class="form-group">
