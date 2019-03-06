@@ -14,17 +14,17 @@
 
   <div class="form-group">
    {!! Form::label('category_id', 'Categoria')!!}
-   {!! Form::select('category_id', $categories, null,['class' => 'form-control', 'placeholder' =>'selecciona una opción', 'required'])!!}
+   {!! Form::select('category_id[]', $categories, null,['class' => 'form-control select-category', 'placeholder' =>'Selecciona una opción', 'required'])!!}
   </div>
   
   <div class="form-group">
    {!! Form::label('content', 'Contenido')!!}
-   {!! Form::textarea('content', null, ['class' => 'form-control'])!!}
+   {!! Form::textarea('content', null, ['class' => 'form-control textarea-content', 'placeholder' => 'Contenido'])!!}
   </div>
 
   <div class="form-group">
    {!! Form::label('tags', 'Tags')!!}
-   {!! Form::select('tags[]', $tags, null,['class' => 'form-control', 'placeholder' =>'selecciona una opción', 'required'])!!}
+   {!! Form::select('tags[]', $tags, null,['multiple class' => 'form-control select-tag', 'required'])!!}
   </div>  
 
   <div class="form-group">
@@ -38,5 +38,15 @@
 
 {!! Form::close() !!}
 </div>
+@endsection
 
+@section('js')
+<script>
+$(".select-tag").chosen(); 
+$(".select-category").chosen({
+  placeholder_text_single: 'Seleccione una categoria'
+}); 
+
+ $(".textarea-content").trumbowyg();
+</script>
 @endsection

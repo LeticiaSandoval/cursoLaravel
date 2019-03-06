@@ -7,6 +7,7 @@ use App\Category;
 use App\Tag;
 use App\Article;
 use App\Image;
+use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -21,7 +22,7 @@ class ArticlesController extends Controller
         return view('admin.articles.create')->with('categories', $categories)->with('tags', $tags);
     }
 
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
         if($request->file('image'))
         {
