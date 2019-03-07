@@ -11,9 +11,9 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $articles = Article::orderBy('id','desc')->paginate(5);
+        $articles = Article::Search($request->title)->orderBy('id','desc')->paginate(5);
         $articles->each(function($articles){
             $articles->category;
             $articles->user;
@@ -54,5 +54,21 @@ class ArticlesController extends Controller
 
        return redirect()->route('articles.index');
 
+    }
+
+    public function edit($id)
+    {
+        $article = Article::find($id);
+
+        return view('admin.articles.edit')->with('article', $article);
+    }
+    
+    public function destroy($id){
+        $article = Article::find($id);
+        flash('Articulo ha sido eliminado')->error();
+        $article->delete();
+
+        return redirect()->route('articles.index');
+   
     }
 }
