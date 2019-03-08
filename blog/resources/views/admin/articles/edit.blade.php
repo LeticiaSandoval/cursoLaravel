@@ -1,39 +1,34 @@
 @extends('admin.template.main')
 
-@section('title', 'Crear artículo')
+@section('title', 'Editar artículo')
 
 @section('content')
 <div class="container">
 <br>
-{!! Form::open(['route' => 'articles.store', 'method' =>'POST', 'files' =>true]) !!}
+{!! Form::open(['route' => ['articles.update', $article], 'method' =>'PUT']) !!} //recibe como objeto el artículo
 
   <div class="form-group">
    {!! Form::label('title', 'Título')!!}
-   {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Título del atículo', 'required'])!!}
+   {!! Form::text('title', $article->title, ['class' => 'form-control', 'placeholder' => 'Título del atículo', 'required'])!!}
   </div>
 
   <div class="form-group">
    {!! Form::label('category_id', 'Categoria')!!}
-   {!! Form::select('category_id[]', $categories, null,['class' => 'form-control select-category', 'placeholder' =>'Selecciona una opción', 'required'])!!}
+   {!! Form::select('category_id[]', $categories, $article->category->id,['class' => 'form-control select-category', 'placeholder' =>'Selecciona una opción', 'required'])!!}
   </div>
   
   <div class="form-group">
    {!! Form::label('content', 'Contenido')!!}
-   {!! Form::textarea('content', null, ['class' => 'form-control textarea-content', 'placeholder' => 'Contenido'])!!}
+   {!! Form::textarea('content', $article->content, ['class' => 'form-control textarea-content', 'placeholder' => 'Contenido'])!!}
   </div>
 
   <div class="form-group">
    {!! Form::label('tags', 'Tags')!!}
-   {!! Form::select('tags[]', $tags, null,['multiple class' => 'form-control select-tag', 'required'])!!}
-  </div>  
+   {!! Form::select('tags[]', $tags, $my_tags,['multiple class' => 'form-control select-tag', 'required'])!!}
+  </div> 
 
   <div class="form-group">
-   {!! Form::label('image', 'Imagen')!!}
-   {!! Form::file('image')!!}
-  </div>
-
-  <div class="form-group">
-  {!! Form::submit('Agregar artículo', ['class' => 'btn btn-primary'])!!}
+  {!! Form::submit('Editar artículo', ['class' => 'btn btn-primary'])!!}
   </div>
 
 {!! Form::close() !!}

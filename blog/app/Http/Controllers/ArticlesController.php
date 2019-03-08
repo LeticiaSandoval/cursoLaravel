@@ -59,8 +59,13 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
+        $article->category; 
+        $categories = Category::orderBy('name','DESC')->pluck('name', 'id');
+        $tags = Tag::orderBy('name','DESC')->pluck('name', 'id');
 
-        return view('admin.articles.edit')->with('article', $article);
+        $my_tags = $article->tags->pluck('id')->ToArray();
+
+        return view('admin.articles.edit')->with('categories', $categories)->with('article', $article)->with('tags',$tags)->with('tags', $tags)->with('my_tags', $my_tags);
     }
     
     public function destroy($id){
@@ -71,4 +76,17 @@ class ArticlesController extends Controller
         return redirect()->route('articles.index');
    
     }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::find($id);
+        $article->fill($request->all());
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+        flash('Datos actualizados')->success();
+        return redirect()->route('articles.index');
+
+    }
+
 }
