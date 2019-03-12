@@ -26,10 +26,10 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'       => 'min:8|max:250|required|unique:article',
+            'title'       => 'min:8|max:250|required|unique:articles',
             'category_id' => 'required',
-            'content'     => 'min:60|required',
-            'image'       => 'required'
+            'content'     => 'min:30|required',
+            'image'       => 'image|required'
         ];
     }
 }
