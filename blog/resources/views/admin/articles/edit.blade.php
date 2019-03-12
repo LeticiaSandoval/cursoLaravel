@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 <br>
-{!! Form::open(['route' => ['articles.update', $article], 'method' =>'PUT']) !!} //recibe como objeto el artículo
+{!! Form::open(['route' => ['articles.update', $article], 'method' =>'PUT']) !!}
 
   <div class="form-group">
    {!! Form::label('title', 'Título')!!}
@@ -14,7 +14,7 @@
 
   <div class="form-group">
    {!! Form::label('category_id', 'Categoria')!!}
-   {!! Form::select('category_id[]', $categories, $article->category->id,['class' => 'form-control select-category', 'placeholder' =>'Selecciona una opción', 'required'])!!}
+   {!! Form::select('category_id', $categories, $article->category->id,['class' => 'form-control select-category', 'placeholder' =>'Selecciona una opción', 'required'])!!}
   </div>
   
   <div class="form-group">

@@ -65,12 +65,15 @@ class ArticlesController extends Controller
 
         $my_tags = $article->tags->pluck('id')->ToArray();
 
-        return view('admin.articles.edit')->with('categories', $categories)->with('article', $article)->with('tags',$tags)->with('tags', $tags)->with('my_tags', $my_tags);
+        return view('admin.articles.edit')->with('categories', $categories)
+                                          ->with('article', $article)
+                                          ->with('tags',$tags)
+                                          ->with('my_tags', $my_tags);
     }
     
     public function destroy($id){
         $article = Article::find($id);
-        flash('Articulo ha sido eliminado')->error();
+        flash('Artículo ha sido eliminado')->error();
         $article->delete();
 
         return redirect()->route('articles.index');
@@ -80,11 +83,11 @@ class ArticlesController extends Controller
     public function update(Request $request, $id)
     {
         $article = Article::find($id);
-        $article->fill($request->all());
+        $article->fill($request->all());  
+        
         $article->save();
-
         $article->tags()->sync($request->tags);
-        flash('Datos actualizados')->success();
+        flash('Atículo actualizado')->success();
         return redirect()->route('articles.index');
 
     }
