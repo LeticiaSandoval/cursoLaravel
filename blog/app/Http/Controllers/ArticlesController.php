@@ -7,6 +7,7 @@ use App\Category;
 use App\Tag;
 use App\Article;
 use App\Image;
+use App\User;
 use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
@@ -72,6 +73,10 @@ class ArticlesController extends Controller
     }
     
     public function destroy($id){
+
+        $name= Image::where('article_id', $id)->value('name');
+        unlink(public_path() .  "/images/articles/$name" );
+        
         $article = Article::find($id);
         flash('Artículo ha sido eliminado')->error();
         $article->delete();

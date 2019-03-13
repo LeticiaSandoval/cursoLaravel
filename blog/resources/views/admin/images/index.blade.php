@@ -3,16 +3,18 @@
 @section('title', 'Listado de imagenes')
 
 @section('content')
-<div class="container">
-    <div class="col-md-2">
-            @foreach($images as $image)
-            <div class="col-md-2">
-                    <div class="panel panel-default">
-                            <div class="panel-body"> <img src="/images/articles/{{$image->name}}" class="img-reponsive"></div>
-                    <div class="panel-footer">{{$image->article->title}}</div> 
-                    </div>
-            </div>      
-    </div>
-    
-</div> 
+<div class="row">
+                @foreach($images as $image)
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="/images/articles/{{$image->name}}">
+                      <img src="/images/articles/{{$image->name}}" alt="Lights" style="width:100%">
+                      <div class="caption">
+                      <p>{{$image->article['title']}}</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                @endforeach   
+</div>
 @endsection

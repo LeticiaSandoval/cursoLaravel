@@ -48,8 +48,6 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function(){
 
 });
 
-//Auth::routes();
-
 
 Route::get('admin/auth/login', [
   'uses'  => 'Auth\LoginController@showLoginForm',
